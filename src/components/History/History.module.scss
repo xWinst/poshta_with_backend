@@ -1,0 +1,71 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.container {
+    margin-top: 30px;
+    padding: 10px;
+
+    border: 2px solid $secondColor;
+    border-radius: 8px;
+    box-shadow: $boxShadow;
+}
+
+.title {
+    margin-bottom: 10px;
+    padding: 6px 0;
+    font-weight: 700;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    text-align: center;
+    color: $secondColor;
+    background-image: $titleGradient;
+}
+
+.list {
+    @extend %flex-align-center;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+
+    li {
+        width: 100%;
+        @extend %flex-align-center;
+        justify-content: space-around;
+        padding: 8px;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 6px;
+        box-shadow: $boxShadow;
+    }
+
+    li:hover {
+        scale: 1.03;
+        transition: scale 300ms ease;
+    }
+}
+
+.btn {
+    position: relative;
+    right: 0;
+}
+
+@include tablet {
+    .container {
+        width: 240px;
+        margin-left: 15px;
+    }
+}
+
+@include desktop {
+    .container {
+        width: 300px;
+        margin-left: 20px;
+    }
+
+    .list {
+        li {
+            font-size: 18px;
+        }
+    }
+}

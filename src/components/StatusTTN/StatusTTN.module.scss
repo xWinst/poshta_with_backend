@@ -1,0 +1,86 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.container {
+    margin-top: 30px;
+    padding: 10px;
+
+    border: 2px solid $secondColor;
+    border-radius: 8px;
+    box-shadow: $boxShadow;
+}
+
+.title {
+    margin: 10px 0;
+    padding: 6px 0;
+    font-weight: 700;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    text-align: center;
+    color: $secondColor;
+    background-image: $titleGradient;
+}
+
+.status {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    color: $secondColor;
+}
+
+.infoBox {
+    display: flex;
+    margin-top: 8px;
+
+    p:nth-child(1) {
+        width: 100px;
+        flex-shrink: 0;
+    }
+
+    p:nth-child(n + 2) {
+        font-weight: 700;
+    }
+}
+
+.icon {
+    position: relative;
+    top: -1px;
+    left: -11px;
+    margin-left: -20px;
+    cursor: pointer;
+
+    &:hover {
+        --bg-info-color: #fbff00;
+        --info-color: #2937fa;
+    }
+}
+
+.textBox {
+    display: flex;
+    align-items: flex-end;
+    font-weight: 700;
+}
+
+@include mobile {
+    .infoBox {
+        p:nth-child(1) {
+            width: 140px;
+        }
+    }
+}
+
+@include tablet {
+    .container {
+        width: 473px;
+    }
+}
+
+@include desktop {
+    .container {
+        width: 900px;
+    }
+
+    .status {
+        font-size: 18px;
+    }
+}

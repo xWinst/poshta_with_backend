@@ -1,0 +1,56 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.header {
+    position: fixed;
+    width: 100%;
+    background-image: $headerGradient;
+    z-index: 10;
+
+    .nav {
+        display: flex;
+        justify-content: space-around;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+}
+
+.link {
+    display: block;
+    padding: 10px;
+    font-weight: 700;
+    text-align: center;
+    color: $thirdColor;
+
+    transition: color 300ms ease;
+
+    &:hover {
+        color: $accentColor;
+    }
+}
+
+.active {
+    @extend .link;
+    color: $accentColor;
+    border-bottom: 2px solid;
+}
+
+@include mobile {
+    .nav {
+        max-width: 480px;
+        font-size: 18px;
+    }
+}
+
+@include tablet {
+    .nav {
+        max-width: 768px;
+    }
+}
+
+@include desktop {
+    .nav {
+        max-width: 1280px;
+        font-size: 20px;
+    }
+}

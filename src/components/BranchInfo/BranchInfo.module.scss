@@ -1,0 +1,115 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.branch {
+    margin: -10px 0 10px;
+    padding: 6px 0;
+    font-weight: 700;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    text-align: center;
+    color: $secondColor;
+    background-image: $titleGradient;
+}
+
+.prop {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.propName {
+    min-width: 80px;
+}
+
+.propValue {
+    min-width: 120px;
+    font-weight: 700;
+}
+
+.title {
+    width: 100%;
+    margin: 10px 0;
+    padding: 4px 0;
+    text-align: center;
+    color: $secondColor;
+    background-image: $topicGradient;
+}
+
+.list {
+    margin-top: 12px;
+    list-style: disc;
+
+    li {
+        margin-top: 5px;
+        margin-left: 40px;
+        font-weight: 700;
+    }
+}
+
+.schedule {
+    margin-bottom: 10px;
+
+    li {
+        display: flex;
+
+        p {
+            padding: 4px;
+            border-top: 1px solid;
+            border-left: 1px solid;
+        }
+    }
+
+    li:last-child {
+        border-bottom: 1px solid;
+    }
+}
+
+.day {
+    width: 150px;
+}
+
+.time {
+    font-weight: 700;
+    width: calc(100% - 120px);
+    text-align: center;
+    border-right: 1px solid;
+}
+
+@include mobile {
+    .branch {
+        margin-top: 0;
+    }
+}
+
+@include tablet {
+    .branch {
+        margin-top: 0;
+    }
+
+    .propName {
+        min-width: 250px;
+    }
+
+    .box {
+        display: flex;
+        gap: 20px;
+
+        div {
+            width: calc(50% - 10px);
+        }
+    }
+}
+
+@include desktop {
+    .branch {
+        font-size: 19px;
+    }
+    .box {
+        gap: 40px;
+
+        div {
+            width: calc(50% - 20px);
+        }
+    }
+}

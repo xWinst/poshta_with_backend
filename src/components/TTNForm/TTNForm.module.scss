@@ -1,0 +1,58 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.form {
+    position: relative;
+    @extend %flex-center;
+    gap: 10px;
+    width: 100%;
+
+    input {
+        width: 100%;
+        padding: 8px;
+        font-weight: 700;
+        border: 2px solid $secondColor;
+        border-radius: 8px;
+        box-shadow: $boxShadow;
+    }
+}
+
+.title {
+    width: 100%;
+    margin: 10px 0;
+    padding: 6px 0;
+    font-size: 17px;
+    font-weight: 700;
+    border-top: 2px solid $accentColor;
+    border-bottom: 2px solid $accentColor;
+    text-align: center;
+    color: $accentColor;
+    background-image: radial-gradient($mainColor 5%, transparent);
+}
+
+.text {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: $accentColor;
+}
+
+@include tablet {
+    .form {
+        max-width: 473px;
+    }
+}
+
+@include desktop {
+    .form {
+        max-width: 900px;
+    }
+
+    .title {
+        font-size: 19px;
+    }
+
+    .text {
+        font-size: 17px;
+    }
+}

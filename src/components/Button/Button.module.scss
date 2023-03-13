@@ -1,0 +1,19 @@
+@import '../../sass/variables';
+
+.button {
+    display: block;
+    padding: 10px 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    background-color: $secondColor;
+    color: $accentColor;
+    box-shadow: $boxShadow;
+}
+
+.button:hover, .button.focus {
+    background-color: $accentColor;
+    color: $secondColor;
+    transition: $transition;
+}
+

@@ -1,0 +1,41 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/hidden";
+
+.filter {
+    margin-top: 10px;
+
+    li {
+        margin-top: 2px;
+    }
+}
+
+.checkBox {
+    @extend %flex-align-center;
+}
+
+.hidden {
+    @extend .visually-hidden;
+}
+
+.checkBoxIcon {
+    margin-right: 8px;
+    border: 2px solid $secondColor;
+    border-radius: 2px;
+    fill: none;
+
+    .hidden:checked + & {
+        border-color: transparent;
+        background-color: $secondColor;
+        background-origin: border-box;
+        fill: $thirdColor;
+    }
+}
+
+@include tablet {
+    .filter {
+        max-width: 800px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

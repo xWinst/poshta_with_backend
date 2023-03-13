@@ -1,0 +1,18 @@
+$mainColor: #000144;
+$secondColor: #2937fa;
+$thirdColor: #eeeeee;
+$accentColor: #fbff00;
+
+$bgGradient: linear-gradient(135deg, #d4efff 40%, #57d5f5);
+// $bgGradient2: linear-gradient(-45deg, #d4efff 40%, #57d5f5);
+$modalGradient: linear-gradient(135deg, #201e61 40%, #141361);
+$bgOverlay: #00000080;
+$headerGradient: linear-gradient(30deg, #1519ff 60%, #000e3d);
+$titleGradient: radial-gradient(circle at center, #57d5f5 30%, #d4efff 75%);
+
+$topicGradient: radial-gradient(circle at center, #92e5fa 60%, transparent);
+
+$loaderSize: 200px;
+
+$boxShadow: 0px 4px 10px #14136180;
+$transition: background-color 300ms ease, color 300ms ease;

@@ -1,0 +1,35 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+}
+
+.modal {
+    @extend %flex-align-center;
+    flex-direction: column;
+    margin: 150px auto 0;
+    width: 380px;
+    min-height: 220px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 80px);
+    padding: 20px;
+    border-radius: 16px;
+    background-image: $headerGradient;
+    // background-image: linear-gradient(117.84deg, #1e1d6a 2.84%, #030634 67.28%);
+    box-shadow: $boxShadow;
+
+    animation: appear 0.3s linear forwards;
+    transform: scale(0.3);
+}
+
+@keyframes appear {
+    to {
+        transform: scale(1);
+    }
+}
