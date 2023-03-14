@@ -2,9 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { addTTN } from "./historyReducer";
 
-//const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
-
-axios.defaults.baseURL = "https://api.novaposhta.ua/v2.0/json/";
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 export type Status = {
     isLoading: boolean;
@@ -28,51 +26,14 @@ export const getStatus = createAsyncThunk<
     { rejectValue: string }
 >("getStatus", async (number, { dispatch, rejectWithValue }) => {
     try {
-        const { data } = await axios.post("", {
-            apiKey: "8e904f55406e03101da547dfe0c30720",
-            modelName: "TrackingDocument",
-            calledMethod: "getStatusDocuments",
-            methodProperties: {
-                Documents: [{ DocumentNumber: number }],
-            },
-        });
+        const { data } = await axios.get(`/ttn/${number}`);
 
-        if (data.data[0].StatusCode === "3")
+        if (!data)
             return rejectWithValue(`ТТН за номером ${number} не знайдено`);
 
         dispatch(addTTN(number));
 
-        const {
-            Status,
-            RecipientDateTime,
-            ScheduledDeliveryDate,
-            CityRecipient,
-            CitySender,
-            DateCreated,
-            ActualDeliveryDate,
-            WarehouseSender,
-            WarehouseRecipient,
-            WarehouseSenderInternetAddressRef,
-            WarehouseRecipientInternetAddressRef,
-        } = data.data[0];
-
-        const result = {
-            isLoading: false,
-            status: Status,
-            receivedDate: RecipientDateTime,
-            deliveryDate: ScheduledDeliveryDate,
-            recipientCity: CityRecipient,
-            senderCity: CitySender,
-            dispatchDate: DateCreated,
-            isParcelDelivered: !!ActualDeliveryDate,
-            senderBranch: WarehouseSender,
-            recipientBranch: WarehouseRecipient,
-            senderBranchId: WarehouseSenderInternetAddressRef,
-            recipientBranchId: WarehouseRecipientInternetAddressRef,
-            error: "",
-        };
-
-        return result;
+        return data;
     } catch (error: any) {
         return rejectWithValue(error.message);
     }

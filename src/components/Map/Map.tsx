@@ -9,7 +9,7 @@ type Position = {
 
 const Map: FC<Position> = (position) => {
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: "AIzaSyBYsRtoxJrgaMjebjmySYw6BeAGcmw_ZUc",
+        googleMapsApiKey: process.env.REACT_APP_API_KEY || "",
     });
     return (
         <div className={s.container}>

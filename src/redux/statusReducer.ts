@@ -37,6 +37,4 @@ const statusSlice = createSlice({
     },
 });
 
-// export const { setStatus } = statusSlice.actions;
-
 export default statusSlice.reducer;

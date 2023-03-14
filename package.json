@@ -2,7 +2,6 @@
     "name": "poshta",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://xwinst.github.io/poshta/",
     "dependencies": {
         "@react-google-maps/api": "^2.18.1",
         "@reduxjs/toolkit": "^1.9.3",
